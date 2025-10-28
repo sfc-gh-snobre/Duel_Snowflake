@@ -97,10 +97,10 @@ graph LR
 - **AWS S3 bucket**: For file staging (read/write access required)
 
 ### Choose Your Deployment Method
-- **Option A**: **Snowflake CLI** - For quick manual setup
+- **Option B**: **Snowflake CLI** - For quick manual setup
   - Install with `pip install snowflake-cli`
-- **Option B**: **Terraform** - For infrastructure as code (recommended by Duel Tech team)
-  - Install Terraform: `brew install terraform` (Mac) or download from [terraform.io](https://www.terraform.io)
+- **Option A**: **Terraform** - For infrastructure as code (recommended by Duel Tech team)
+  - Install Terraform: `brew install terraform` (Mac) or download from [terraform.io](https://www.terraform.io) & - [Terraforming Snowflake](https://quickstarts.snowflake.com/guide/terraforming_snowflake/index.html#0)
   - Clone the repository with Terraform configurations
 
 ### Optional
@@ -206,7 +206,7 @@ Choose your deployment path based on your team's preferences:
 
 ### Option A: Deploy with Terraform (Recommended for Duel Tech) (OPTIONAL)
 
-Since your team uses Terraform for all infrastructure management, this approach aligns with your existing workflows.
+Since your team uses Terraform for all infrastructure management, this approach aligns with your existing workflows.These are examples please visit [Terraforming Snowflake](https://quickstarts.snowflake.com/guide/terraforming_snowflake/index.html#0) for prod deployments.
 
 #### Step 1: Clone Repository and Configure Terraform
 
