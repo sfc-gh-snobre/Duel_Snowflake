@@ -539,7 +539,7 @@ QUALIFY ROW_NUMBER() OVER (
 ) = 1;
 ```
 
-### Step 2: Native dbt Integration: [dbt on Snowflake Guide](https://docs.snowflake.com/en/user-guide/data-engineering/dbt-projects-on-snowflake)
+### Step 2: Native dbt Integration. Please visit [dbt on Snowflake Guide](https://docs.snowflake.com/en/user-guide/data-engineering/dbt-projects-on-snowflake)
 
 1. **Connect dbt to Snowflake**:
 ```bash
