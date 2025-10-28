@@ -35,3 +35,4 @@ This document outlines the mutual success plan for Duel Tech’s growth on the S
 
 - [Terraforming Snowflake](https://quickstarts.snowflake.com/guide/terraforming_snowflake/index.html#0)
 - [dbt on Snowflake Guide](https://docs.snowflake.com/en/user-guide/data-engineering/dbt-projects-on-snowflake)
+- [Using a Git repository in Snowflake](https://docs.snowflake.com/en/developer-guide/git/git-overview)
