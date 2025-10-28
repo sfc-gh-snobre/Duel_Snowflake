@@ -12,12 +12,10 @@ In this hands on quickstart, you'll build a complete advocacy analytics pipeline
 - Daily full MongoDB snapshots causing scalability issues (not sustainable beyond 25K advocates)
 - Manual CDC computation on top of snapshot data (160 engineering hours/month)
 - No semantic layer for business users (only 3 SQL users can access data)
-- Inefficient compute usage without workload isolation ($75K annual costs)
 
 ### Target State Benefits
 - Incremental data loading with automated CDC
 - Self-service analytics for 15+ business users
-- 75% cost reduction through optimized compute
 - Linear scaling to 100K+ advocates
 
 ### What You'll Build
@@ -118,7 +116,6 @@ graph LR
 - 🛠️ **Native dbt Integration**: Build version-controlled transformations directly in Snowflake
 - 💬 **Natural Language Analytics**: Enable business users with Snowflake Intelligence and Cortex Analyst
 - 📈 **Interactive Dashboards**: Deploy Streamlit applications natively in Snowflake
-- 💰 **Cost Optimization**: Implement workload isolation saving 75% on compute costs
 - 🔐 **Data Governance**: Apply dynamic data masking for PII protection
 - ⏰ **Time Travel**: Configure data recovery with up to 90 days retention
 
@@ -132,7 +129,6 @@ Based on the feature mapping from your POC, here's your decision matrix:
 | **Latency** | 24-72 hours | 5 minutes | Real-time |
 | **Transformation** | Manual SQL | Dynamic Tables + dbt | Fully automated |
 | **Analytics** | 3 SQL users | Streamlit dashboards | Natural language |
-| **Cost** | $75K/year | $25K/year | $18K/year |
 | **Scale** | 15K advocates | 50K advocates | 100K+ advocates |
 
 ## Next Steps & Roadmap
@@ -1031,7 +1027,7 @@ if __name__ == "__main__":
 - **Sub-second latency**: Data available immediately  
 - **Offset tracking**: Exactly-once delivery guarantees
 - **Lower overhead**: No warehouse compute required
-- **Cost**: ~$0.012 per million rows
+
 
 ### Direct MongoDB API Integration
 
