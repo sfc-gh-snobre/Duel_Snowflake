@@ -4,7 +4,9 @@
 
 With the explosive growth of brand advocacy and influencer marketing, traditional batch-based analytics can't keep pace with real-time campaign optimization needs. Duel Tech and Snowflake have partnered to transform how brands measure and optimize their advocate programs, replacing 72-hour reporting delays with real-time Gross Advocacy Value (GAV) analytics.
 
-In this hands-on quickstart, you'll build a complete advocacy analytics pipeline that demonstrates multiple architectural options for ingestion, transformation, and consumption - tailored to Duel Tech's current MongoDB-based infrastructure. Let's transform your advocate analytics!
+In this hands on quickstart, you'll build a complete advocacy analytics pipeline that demonstrates multiple architectural options for ingestion, transformation, and consumption - tailored to Duel Tech's current MongoDB-based infrastructure. Let's transform your advocate analytics!
+
+🚨 Note: Code snippets & configurations in this POC Quickstart are for example purposes only. They are not production ready & may require additional validation before deployment. Snippets may not always appear in the precise implementation order, so please consult the appropriate section for context. Refer to the official Snowflake Documentation,Snowflake Quickstarts & your internal standards to review & test as needed. These examples are meant to help you get started faster.
 
 ### Current State Pain Points
 - Daily full MongoDB snapshots causing scalability issues (not sustainable beyond 25K advocates)
@@ -543,7 +545,7 @@ QUALIFY ROW_NUMBER() OVER (
 ) = 1;
 ```
 
-### Step 2: Native dbt Integration
+### Step 2: Native dbt Integration: [dbt on Snowflake Guide](https://docs.snowflake.com/en/user-guide/data-engineering/dbt-projects-on-snowflake)
 
 1. **Connect dbt to Snowflake**:
 ```bash
