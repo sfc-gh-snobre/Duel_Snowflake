@@ -264,8 +264,6 @@ If you prefer manual setup or are evaluating before adding to Terraform:
 2. Login with your credentials
 3. You should see the Snowsight interface:
 
-![Snowsight Interface](assets/snowsight-home.png)
-
 ### Step 2: Set Up ACCOUNTADMIN Role
 
 1. Click on your username in the top-right corner
