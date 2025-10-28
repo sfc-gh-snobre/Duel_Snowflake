@@ -24,12 +24,6 @@ In this hands-on quickstart, you'll build a complete advocacy analytics pipeline
 - Self-service analytics with natural language queries and interactive dashboards
 - Cost-optimized architecture that scales linearly to 100K+ advocates
 
-### Who Is This For?
-- **Data Engineers** at Duel Tech looking to modernize their MongoDB → Snowflake pipeline
-- **Marketing Teams** needing self-service access to advocate performance metrics
-- **Technical Leaders** evaluating Snowflake for production advocacy analytics
-- **Anyone** building real-time analytics on top of MongoDB data
-
 ### POC Approach: Two Phases
 
 **Phase 1 (Q4 2025 - This Quickstart)**: Build the GAV foundation
@@ -97,9 +91,7 @@ graph LR
 ## Prerequisites
 
 ### Required
-- **Snowflake Account**: Standard edition or higher (free trial works)
-  - Sign up at [signup.snowflake.com](https://signup.snowflake.com)
-  - Use an email that hasn't been used for Snowflake before
+- **Snowflake Account**
 - **GitHub Account**: For version control integration
 - **MongoDB database**: With advocacy data (advocates, tasks, posts, companies)
 - **AWS S3 bucket**: For file staging (read/write access required)
@@ -128,11 +120,93 @@ graph LR
 - 🔐 **Data Governance**: Apply dynamic data masking for PII protection
 - ⏰ **Time Travel**: Configure data recovery with up to 90 days retention
 
+## Summary: Your Architectural Options
+
+Based on the feature mapping from your POC, here's your decision matrix:
+
+| Requirement | Current State | Quick Win | Future State |
+|------------|--------------|-----------|--------------|
+| **Ingestion** | Daily MongoDB exports | Snowpipe (file-based) | External Access (API) |
+| **Latency** | 24-72 hours | 5 minutes | Real-time |
+| **Transformation** | Manual SQL | Dynamic Tables + dbt | Fully automated |
+| **Analytics** | 3 SQL users | Streamlit dashboards | Natural language |
+| **Cost** | $75K/year | $25K/year | $18K/year |
+| **Scale** | 15K advocates | 50K advocates | 100K+ advocates |
+
+## Next Steps & Roadmap
+
+### Immediate Actions (Week 1-3)
+1. **Week 1**: Implement file-based ingestion with Snowpipe
+   - Set up S3 stages and event notifications
+   - Create bronze tables for all entities
+   - Validate data loading
+
+2. **Week 2**: Deploy dbt transformations and Streamlit dashboards
+   - Initialize dbt project with Git integration
+   - Build staging models and GAV calculations
+   - Deploy first Streamlit dashboard
+
+3. **Week 3**: Enable natural language queries
+   - Create semantic models for Cortex Analyst
+   - Train marketing team on Snowflake Intelligence
+   - Document common queries
+
+### Future Phases
+**Phase 2 (Q1 2026)**: Marketing Data Integration
+- Integrate LinkedIn, HubSpot, Clay data
+- Build attribution models
+- Connect leads to advocate activity
+
+**Phase 3 (Q2 2026)**: Advanced Analytics
+- Predictive advocate churn models
+- Content recommendation engine
+- Real-time performance alerts
+
+**Phase 4 (Q3 2026)**: AI-Powered Insights
+- Full Cortex Analyst deployment
+- Automated anomaly detection
+- Natural language report generation
+
+## Additional Resources
+
+- [Snowflake Documentation](https://docs.snowflake.com/en/user-guide-getting-started)
+- [Terraforming Snowflake](https://quickstarts.snowflake.com/guide/terraforming_snowflake/index.html#0)
+- [dbt on Snowflake Guide](https://docs.snowflake.com/en/user-guide/data-engineering/dbt-projects-on-snowflake)
+- [Streamlit in Snowflake](https://docs.snowflake.com/en/developer-guide/streamlit/about-streamlit)
+- [Partner Connect Integrations](https://docs.snowflake.com/en/user-guide/ecosystem-all)
+
+---
+
+## Key Metrics & Success Criteria
+
+### Technical Success Metrics
+- ✅ **Data Latency**: From 72 hours → 10 minutes 
+- ✅ **Processing Time**: From 6-hour batches → continuous updates
+- ✅ **User Enablement**: From 3 SQL users → 15+ self-service users
+- ✅ **Scalability**: From 15K → 100K+ advocates supported
+
+### Go-Live Steps
+
+1. **Migration Planning**
+   - Schedule MongoDB export automation
+   - Configure Snowpipe notifications
+   - Set up monitoring alerts
+
+2. **User Enablement**
+   - Train data team on dbt workflows
+   - Demo Snowflake Intelligence to marketing
+   - Create quick reference guides
+
+3. **Monitoring Setup**
+   - Configure Slack/email alerts
+   - Set up cost tracking dashboards
+   - Schedule regular health checks
+
 ## Module 1: Initial Setup (5 minutes)
 
 Choose your deployment path based on your team's preferences:
 
-### Option A: Deploy with Terraform (Recommended for Duel Tech)
+### Option A: Deploy with Terraform (Recommended for Duel Tech) (OPTIONAL)
 
 Since your team uses Terraform for all infrastructure management, this approach aligns with your existing workflows.
 
@@ -180,11 +254,9 @@ terraform output github_integration_name
 # Output: github_integration
 ```
 
-Skip to [Step 5: Generate Demo Data](#step-5-generate-demo-data-optional)
-
 ---
 
-### Option B: Manual Setup with Snowflake CLI
+### Option B: Manual Setup with Snowflake CLI (OPTIONAL)
 
 If you prefer manual setup or are evaluating before adding to Terraform:
 
@@ -349,7 +421,6 @@ SELECT * FROM TABLE(INFORMATION_SCHEMA.COPY_HISTORY(
 **Benefits**:
 - Zero code changes to existing MongoDB export process
 - Automatic file detection and loading
-- Cost: ~$0.06 per 1000 files
 - Can be incrementally improved later without breaking changes
 
 ## Module 3: Transformation Layer - CDC and dbt
@@ -871,23 +942,6 @@ FROM SILVER_SCHEMA.DT_ADVOCATE_CURRENT;
     SET DATA_RETENTION_TIME_IN_DAYS = 30;
   ```
 
-### Go-Live Steps
-
-1. **Migration Planning**
-   - Schedule MongoDB export automation
-   - Configure Snowpipe notifications
-   - Set up monitoring alerts
-
-2. **User Enablement**
-   - Train data team on dbt workflows
-   - Demo Snowflake Intelligence to marketing
-   - Create quick reference guides
-
-3. **Monitoring Setup**
-   - Configure Slack/email alerts
-   - Set up cost tracking dashboards
-   - Schedule regular health checks
-
 ---
 
 # PHASE 2: Enable Advanced Analytics (Future - After Q4)
@@ -1103,86 +1157,6 @@ snow streamlit get-url DUEL_TECH_DEMO_DB.DEMO_SCHEMA.ADVOCATE_ANALYTICS_APP
 - Campaign ROI analysis
 - Export capabilities
 
----
-
-## Summary: Your Architectural Options
-
-Based on the feature mapping from your POC, here's your decision matrix:
-
-| Requirement | Current State | Quick Win | Future State |
-|------------|--------------|-----------|--------------|
-| **Ingestion** | Daily MongoDB exports | Snowpipe (file-based) | External Access (API) |
-| **Latency** | 24-72 hours | 5 minutes | Real-time |
-| **Transformation** | Manual SQL | Dynamic Tables + dbt | Fully automated |
-| **Analytics** | 3 SQL users | Streamlit dashboards | Natural language |
-| **Cost** | $75K/year | $25K/year | $18K/year |
-| **Scale** | 15K advocates | 50K advocates | 100K+ advocates |
-
-## Next Steps & Roadmap
-
-### Immediate Actions (Week 1-3)
-1. **Week 1**: Implement file-based ingestion with Snowpipe
-   - Set up S3 stages and event notifications
-   - Create bronze tables for all entities
-   - Validate data loading
-
-2. **Week 2**: Deploy dbt transformations and Streamlit dashboards
-   - Initialize dbt project with Git integration
-   - Build staging models and GAV calculations
-   - Deploy first Streamlit dashboard
-
-3. **Week 3**: Enable natural language queries
-   - Create semantic models for Cortex Analyst
-   - Train marketing team on Snowflake Intelligence
-   - Document common queries
-
-### Future Phases
-**Phase 2 (Q1 2026)**: Marketing Data Integration
-- Integrate LinkedIn, HubSpot, Clay data
-- Build attribution models
-- Connect leads to advocate activity
-
-**Phase 3 (Q2 2026)**: Advanced Analytics
-- Predictive advocate churn models
-- Content recommendation engine
-- Real-time performance alerts
-
-**Phase 4 (Q3 2026)**: AI-Powered Insights
-- Full Cortex Analyst deployment
-- Automated anomaly detection
-- Natural language report generation
-
-## Additional Resources
-
-- [Snowflake Documentation](https://docs.snowflake.com)
-- [dbt on Snowflake Guide](https://docs.snowflake.com/en/user-guide/data-engineering/dbt-projects)
-- [Streamlit in Snowflake](https://docs.snowflake.com/en/developer-guide/streamlit/about-streamlit)
-- [Partner Connect Integrations](https://docs.snowflake.com/en/user-guide/ecosystem-all)
-
-
-## Get Help
-
-- **Snowflake Support**: support.snowflake.com
-- **Community**: community.snowflake.com
-- **Duel Tech Data Team**: data-team@duel.tech
-- **POC Repository**: github.com/dueltech/snowflake-poc
-
----
-
-## Key Metrics & Success Criteria
-
-### Technical Success Metrics
-- ✅ **Data Latency**: From 72 hours → 10 minutes (93% improvement)
-- ✅ **Processing Time**: From 6-hour batches → continuous updates
-- ✅ **User Enablement**: From 3 SQL users → 15+ self-service users
-- ✅ **Cost Reduction**: From $75K → $18K annually (76% savings)
-- ✅ **Scalability**: From 15K → 100K+ advocates supported
-
-### Business Impact
-- 💰 **$2.5M** annual revenue from faster campaign optimization
-- ⏱️ **160 hours/month** engineering time saved
-- 📈 **35% increase** in campaign ROI from real-time insights
-- 🚀 **10x faster** decision making for marketing team
 
 ## Troubleshooting & Common Issues
 
@@ -1224,9 +1198,3 @@ LIMIT 10;
 
 ---
 
-**Ready to transform your advocacy analytics?** Start with Module 1 and choose your ingestion path. In just 30 minutes, you'll have a working pipeline that eliminates your 72-hour reporting delays!
-
-💡 **Pro Tip**: Use the one-click deployment script for fastest setup:
-```bash
-./deployment/scripts/deploy_poc.sh duel_tech_demo
-```
