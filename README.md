@@ -32,7 +32,6 @@ This document outlines the mutual success plan for the Duel Tech evaluation of t
 #### 5. 💡 Notes & Recommendations
 * **Terraform First:** The technical team strongly prefers an "infrastructure as code" workflow. The evaluation should prioritize **Module 1: Option A (Deploy with Terraform)** for all resource creation. This will build confidence and align with existing practices.
 * **Focus on the Foundation:** This evaluation is focused on **Phase 1: Build the GAV Foundation**. Success is defined by proving the core pipeline (Ingestion -> Dynamic Tables -> dbt -> Quicksight). Features like Cortex Analyst and Snowpipe Streaming are high-value "fast follows" for Phase 2.
-* **Key Stakeholders:**
-    * **Primary Technical Lead:** Jamie Johnston (Data Engineer)
-    * **Primary Business Sponsor:** Andrew Barnes (Head of Data & AI)
-    * **Key Business "Customer":** Nishan Khednah (Head of Digital Marketing)
+
+- [Terraforming Snowflake](https://quickstarts.snowflake.com/guide/terraforming_snowflake/index.html#0)
+- [dbt on Snowflake Guide](https://docs.snowflake.com/en/user-guide/data-engineering/dbt-projects-on-snowflake)
