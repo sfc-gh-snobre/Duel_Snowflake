@@ -6,7 +6,7 @@ With the explosive growth of brand advocacy and influencer marketing, traditiona
 
 In this hands on quickstart, you'll build a complete advocacy analytics pipeline that demonstrates multiple architectural options for ingestion, transformation, and consumption - tailored to Duel Tech's current MongoDB-based infrastructure. Let's transform your advocate analytics!
 
-🚨 Note: Code snippets & configurations in this POC Quickstart are for example purposes only. They are not production ready & may require additional validation before deployment. Snippets may not always appear in the precise implementation order, so please consult the appropriate section for context. Refer to the official Snowflake Documentation,Snowflake Quickstarts & your internal standards to review & test as needed. These examples are meant to help you get started faster.
+🚨 Note: Code snippets & configurations in this POC Quickstart are for example purposes only. They are not production ready & may require additional validation before deployment. Snippets may not always appear in the precise implementation order, so please consult the appropriate section for context. Refer to the official [Snowflake Documentation](https://docs.snowflake.com/en/user-guide-getting-started),[Snowflake Quickstarts](https://quickstarts.snowflake.com/) & your internal standards to review & test as needed. These examples are meant to help you get started faster.
 
 ### Current State Pain Points
 - Daily full MongoDB snapshots causing scalability issues (not sustainable beyond 25K advocates)
