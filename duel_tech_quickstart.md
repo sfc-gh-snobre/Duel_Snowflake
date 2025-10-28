@@ -2,7 +2,7 @@
 
 ## Overview
 
-With the explosive growth of brand advocacy and influencer marketing, traditional batch-based analytics can't keep pace with real-time campaign optimization needs. Duel Tech and Snowflake have partnered to transform how brands measure and optimize their advocate programs, replacing 72-hour reporting delays with real-time Gross Advocacy Value (GAV) analytics.
+With the growth of brand advocacy and influencer marketing, traditional batch-based analytics can't keep pace with real-time campaign optimization needs. Duel Tech and Snowflake have partnered to transform how brands measure and optimize their advocate programs, replacing 72-hour reporting delays with real-time Gross Advocacy Value (GAV) analytics.
 
 In this hands on quickstart, you'll build a complete advocacy analytics pipeline that demonstrates multiple architectural options for ingestion, transformation, and consumption - tailored to Duel Tech's current MongoDB-based infrastructure. Let's transform your advocate analytics!
 
@@ -243,7 +243,7 @@ terraform apply -auto-approve
 # schemas = ["BRONZE_SCHEMA", "SILVER_SCHEMA", "GOLD_SCHEMA", "SEMANTIC"]
 ```
 
-#### Step 3: Configure Git Integration
+#### Step 3: Configure Git Integration, Please visit [Using a Git repository in Snowflake](https://docs.snowflake.com/en/developer-guide/git/git-overview)
 
 ```bash
 # Terraform automatically creates the GitHub integration
