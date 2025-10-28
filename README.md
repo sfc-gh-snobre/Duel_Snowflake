@@ -1,6 +1,6 @@
 ### 🧩 Snowflake Success Plan
 
-This document outlines the mutual success plan for the Duel Tech evaluation of the Snowflake Data Cloud, based on our joint discovery and the accompanying [POV Quickstart](duel_tech_quickstart.md) technical guide.
+This document outlines the mutual success plan for the Duel Tech progression on the Snowflake Data Cloud, based on our joint discovery and the accompanying [POV Quickstart](duel_tech_quickstart.md) technical guide.
 
 #### 1. 🚨 Business Challenges
 * **Data pipelines are unscalable and brittle**, relying on full daily snapshots from MongoDB that cannot support growth beyond 25K advocates.
